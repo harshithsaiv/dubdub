@@ -58,9 +58,9 @@ async fn main() -> std::io::Result<()> {
     
     let bind_address = format!("0.0.0.0:{}", port);
     
-    log::info!("🚀 Starting DuoTok Enhanced Rust Service on {}", bind_address);
-    log::info!("📚 Supported languages: 30+ languages");
-    log::info!("⚡ High-performance tokenization ready");
+    log::info!(" Starting DuoTok Enhanced Rust Service on {}", bind_address);
+    log::info!(" Supported languages: 30+ languages");
+    log::info!(" High-performance tokenization ready");
     
     HttpServer::new(|| {
         let cors = Cors::default()
