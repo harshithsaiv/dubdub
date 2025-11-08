@@ -1,0 +1,32 @@
+# Web Framework
+fastapi==0.121.0
+uvicorn[standard]==0.38.0
+python-multipart==0.0.20
+pydantic==2.12.4
+pydantic-settings==2.11.0
+
+# NLP & ML
+spacy==3.8.7
+stanza==1.11.0
+transformers==4.57.1
+torch==2.9.0
+sentence-transformers==5.1.2
+
+# TTS (Text-to-Speech)
+edge-tts==7.2.3
+pydub==0.25.1
+
+# IPA Pronunciation
+# epitran==1.34  # Requires C++ compilation, skipping for now
+# phonemizer==3.3.0  # Requires espeak backend, skipping for now
+# We'll use spaCy's built-in phonetics or a simpler solution
+
+# Database & Caching
+redis==7.0.1
+psycopg2-binary==2.9.11
+sqlalchemy==2.0.44
+
+# Utilities
+python-dotenv==1.2.1
+aiohttp==3.13.2
+httpx==0.28.1

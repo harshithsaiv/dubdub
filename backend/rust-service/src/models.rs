@@ -30,24 +30,42 @@ pub struct HealthResponse {
     pub version: String,
 }
 
-// #[derive(Debug, Deserialize, Serialize)]
-// pub struct WordAlignment {
-//     pub word: String,
-//     pub start_time: f64,
-//     pub end_time: f64,
-//     pub confidence: f64,
-// }
+/// Timing information for a single word
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct WordTiming {
+    pub word: String,
+    pub start: f64,
+    pub end: f64,
+    pub confidence: f64,
+    pub char_start: usize,
+    pub char_end: usize,
+}
 
+#[derive(Debug, Deserialize,Serialize)]
+pub struct AlignmentRequest {
+    pub text: String,
+    pub language: String,
+    pub subtitle_start: f64,  
+    pub subtitle_end: f64,
 
-// #[derive(Debug, Deserialize)]
-// pub struct AlignmentRequest {
-//     pub text: String,
-//     pub audio_url: String,
-//     pub language: String,
-// }
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub audio_url: Option<String>,
+}
 
-// #[derive(Debug, Serialize)]
-// pub struct AlignmentResponse {
-//     pub alignments: Vec<WordAlignment>,
-//     pub duration: f64,
-// }
+/// Response containing aligned word timings
+#[derive(Debug, Serialize)]
+pub struct AlignmentResponse {
+    pub text: String,
+    pub language: String,
+    pub duration: f64,
+    pub timings: Vec<WordTiming>,  // Changed from WordAlignment
+    pub method: AlignmentMethod,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum AlignmentMethod {
+    Linear,          
+    Weighted,        
+    ForcedAligner,   
+}

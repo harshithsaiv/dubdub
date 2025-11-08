@@ -1,0 +1,15 @@
+# Minimal requirements to get started
+# Web Framework
+fastapi==0.121.0
+uvicorn[standard]==0.38.0
+python-multipart==0.0.20
+
+# TTS (Text-to-Speech) - lightweight
+edge-tts==7.2.3
+
+# Utilities
+python-dotenv==1.2.1
+aiohttp==3.13.2
+
+# Database & Caching (if needed later)
+redis==7.0.1

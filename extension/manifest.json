@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "DubDub - AI Language Learning",
+  "version": "1.0.0",
+  "description": "Learn languages while watching videos - click any word for instant definitions, pronunciation, and audio",
+  
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  
+  "host_permissions": [
+    "http://localhost:8080/*",
+    "http://localhost:8000/*",
+    "https://*.netflix.com/*",
+    "https://*.youtube.com/*",
+    "https://*.disneyplus.com/*",
+    "https://*.hulu.com/*",
+    "https://*.primevideo.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.netflix.com/*",
+        "https://*.youtube.com/*",
+        "https://*.disneyplus.com/*",
+        "https://*.hulu.com/*",
+        "https://*.primevideo.com/*"
+      ],
+      "js": [
+        "content/api-client.js",
+        "content/netflix-subtitle-parser.js",
+        "content/netflix-handler.js",
+        "content/subtitle-detector.js",
+        "content/word-popover.js",
+        "content/main.js"
+      ],
+      "css": [
+        "content/popover.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "content/netflix-injector.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

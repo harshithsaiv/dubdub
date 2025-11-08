@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DubDub - Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>🎬 DubDub</h1>
+      <p>AI Language Learning</p>
+    </header>
+
+    <div class="popup-body">
+      <!-- Status -->
+      <div class="status-section">
+        <div class="status-indicator">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Checking...</span>
+        </div>
+      </div>
+
+      <!-- Toggle -->
+      <div class="control-section">
+        <label class="toggle-label">
+          <span>Enable DubDub</span>
+          <input type="checkbox" id="enable-toggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Language Selection -->
+      <div class="control-section">
+        <label for="language-select">Learning Language:</label>
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="it">Italian</option>
+          <option value="pt">Portuguese</option>
+          <option value="ja">Japanese</option>
+          <option value="ko">Korean</option>
+          <option value="zh">Chinese</option>
+          <option value="ar">Arabic</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div>
+
+      <!-- Services Status -->
+      <div class="services-section">
+        <h3>Backend Services</h3>
+        <div class="service-status">
+          <span>Rust Service (8080):</span>
+          <span id="rust-status" class="status-badge">Checking...</span>
+        </div>
+        <div class="service-status">
+          <span>Python ML (8000):</span>
+          <span id="python-status" class="status-badge">Checking...</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="actions-section">
+        <button id="clear-cache-btn" class="action-btn">🗑️ Clear Cache</button>
+        <button id="test-tts-btn" class="action-btn">🔊 Test TTS</button>
+      </div>
+    </div>
+
+    <footer class="popup-footer">
+      <p>Click any subtitle word to learn!</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
